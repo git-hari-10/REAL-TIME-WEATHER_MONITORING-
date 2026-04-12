@@ -1,4 +1,5 @@
 #include "i2c_internal.h"
+unsigned char a[3];
 
 unsigned char BCDtoDEC(unsigned char num)
 {

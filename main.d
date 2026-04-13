@@ -5,3 +5,4 @@ main.o: i2c_internal.h
 main.o: define.h
 main.o: temperature.h
 main.o: lcd.h
+main.o: uart.h

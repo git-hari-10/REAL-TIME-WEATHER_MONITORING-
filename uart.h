@@ -1,3 +1,6 @@
+#define IN1  1<<21
+#define IN2  1<<22
+#define BUZZ 1<<23
 
 void txd(unsigned char);
 void uart_str(unsigned char*);
@@ -27,17 +30,17 @@ void task(float value)
 
         if(value>35.0f)
         {
-						lcd_cmd(0x01);
-            uart_str("HIGH TEMPERATURE");
+						IOSET0 = IN1;IOCLR0 = IN2; // MOTOR ON
+            uart_str("HIGH TEMPERATURE  ");
             lcd_cmd(0x94);
-            lcd_str("HIGH TEMPERATURE");
+            lcd_str("HIGH TEMPERATURE  ");
         }
         else if(value<25.0f)
         {
-						lcd_cmd(0x01);
-            uart_str("LOW TEMPERATURE");
+						IOSET0 = BUZZ;  				  // BUZZER ON
+            uart_str("LOW TEMPERATURE   ");
             lcd_cmd(0x94);
-            lcd_str("LOW TEMPERATURE ");
+            lcd_str("LOW TEMPERATURE    ");
         }
 
         delay_ms(500);
@@ -48,11 +51,12 @@ void task(float value)
 
 void uart_init(void)
 {
+		IODIR0  |= IN1|IN2|BUZZ;
     PINSEL0 |= 0x05;
-    U0LCR   = 0x83;
-    U0DLL   = 97;
-    U0DLM   = 0;
-    U0LCR   = 0x03;
+    U0LCR    = 0x83;
+    U0DLL    = 97;
+    U0DLM    = 0;
+    U0LCR    = 0x03;
 }
 
 void txd(unsigned char data)

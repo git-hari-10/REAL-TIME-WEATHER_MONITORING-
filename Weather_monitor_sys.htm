@@ -3,7 +3,7 @@
 <title>Static Call Graph - [C:\Users\haris\Documents\ARM\Embedded C\krithika\main\Weather_monitor_sys.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image C:\Users\haris\Documents\ARM\Embedded C\krithika\main\Weather_monitor_sys.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 4.1 [Build 894]: Last Updated: Mon Apr 13 13:00:33 2026
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 4.1 [Build 894]: Last Updated: Tue Apr 14 08:54:32 2026
 <BR><P>
 <H3>Maximum Stack Usage =         64 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -44,7 +44,8 @@ Function Pointers
  <LI><a href="#[5]">SWI_Handler</a> from startup.o(RESET) referenced from startup.o(RESET)
  <LI><a href="#[4]">Undef_Handler</a> from startup.o(RESET) referenced from startup.o(RESET)
  <LI><a href="#[c]">__main</a> from __main.o(!!!main) referenced from startup.o(RESET)
- <LI><a href="#[3f]">_fflt</a> from fflt_noclz.o(x$fpl$fflt) referenced from main.o(.text)
+ <LI><a href="#[3f]">__user_libspace</a> from libspace.o(.text) referenced from main.o(.text)
+ <LI><a href="#[1b]">_sys_exit</a> from sys_exit.o(.text) referenced from main.o(.text)
  <LI><a href="#[b]">main</a> from main.o(.text) referenced from rtentry2.o(.ARM.Collect$$rtentry$$0000000D)
 </UL>
 <P>
@@ -370,7 +371,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;task
 </UL>
 
-<P><STRONG><a name="[39]"></a>task</STRONG> (ARM, 240 bytes, Stack size 8 bytes, main.o(.text))
+<P><STRONG><a name="[39]"></a>task</STRONG> (ARM, 256 bytes, Stack size 8 bytes, main.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = task &rArr; __aeabi_cfcmple
 </UL>
 <BR>[Calls]<UL><LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfrcmple
@@ -384,11 +385,11 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[3e]"></a>uart_init</STRONG> (ARM, 60 bytes, Stack size 0 bytes, main.o(.text))
+<P><STRONG><a name="[3e]"></a>uart_init</STRONG> (ARM, 80 bytes, Stack size 0 bytes, main.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[b]"></a>main</STRONG> (ARM, 584 bytes, Stack size 0 bytes, main.o(.text))
+<P><STRONG><a name="[b]"></a>main</STRONG> (ARM, 592 bytes, Stack size 0 bytes, main.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = main &rArr; lcd_flt &rArr; lcd_int &rArr; __aeabi_idivmod
 </UL>
 <BR>[Calls]<UL><LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfrcmple
@@ -441,29 +442,31 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[16]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
 </UL>
 
-<P><STRONG><a name="[76]"></a>__user_libspace</STRONG> (ARM, 12 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)
-
+<P><STRONG><a name="[3f]"></a>__user_libspace</STRONG> (ARM, 12 bytes, Stack size 0 bytes, libspace.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> main.o(.text)
+</UL>
 <P><STRONG><a name="[40]"></a>__user_perproc_libspace</STRONG> (ARM, 0 bytes, Stack size 0 bytes, libspace.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[14]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_setup_stackheap
 </UL>
 
-<P><STRONG><a name="[77]"></a>__user_perthread_libspace</STRONG> (ARM, 0 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)
+<P><STRONG><a name="[76]"></a>__user_perthread_libspace</STRONG> (ARM, 0 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)
 
 <P><STRONG><a name="[1b]"></a>_sys_exit</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, sys_exit.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_exit_exit (via Veneer)
 </UL>
-
+<BR>[Address Reference Count : 1]<UL><LI> main.o(.text)
+</UL>
 <P><STRONG><a name="[4d]"></a>__rt_fp_status_addr</STRONG> (ARM, 12 bytes, Stack size 0 bytes, rt_fp_status_addr_intlibspace.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[12]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_init
 </UL>
 
-<P><STRONG><a name="[78]"></a>__I$use$semihosting</STRONG> (ARM, 0 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
+<P><STRONG><a name="[77]"></a>__I$use$semihosting</STRONG> (ARM, 0 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
 
-<P><STRONG><a name="[79]"></a>__use_no_semihosting_swi</STRONG> (ARM, 4 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
+<P><STRONG><a name="[78]"></a>__use_no_semihosting_swi</STRONG> (ARM, 4 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
 
-<P><STRONG><a name="[7a]"></a>__aeabi_fadd</STRONG> (ARM, 0 bytes, Stack size 16 bytes, faddsub_noclz.o(x$fpl$fadd), UNUSED)
+<P><STRONG><a name="[79]"></a>__aeabi_fadd</STRONG> (ARM, 0 bytes, Stack size 16 bytes, faddsub_noclz.o(x$fpl$fadd), UNUSED)
 
-<P><STRONG><a name="[7b]"></a>__semihosting_library_function</STRONG> (ARM, 0 bytes, Stack size 16 bytes, indicate_semi.o(.text), UNUSED)
+<P><STRONG><a name="[7a]"></a>__semihosting_library_function</STRONG> (ARM, 0 bytes, Stack size 16 bytes, indicate_semi.o(.text), UNUSED)
 
 <P><STRONG><a name="[44]"></a>_fadd</STRONG> (ARM, 196 bytes, Stack size 16 bytes, faddsub_noclz.o(x$fpl$fadd), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fretinf
@@ -501,9 +504,8 @@ Global Symbols
 <LI><a href="#[2f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_flt
 </UL>
 
-<P><STRONG><a name="[3f]"></a>_fflt</STRONG> (ARM, 92 bytes, Stack size 0 bytes, fflt_noclz.o(x$fpl$fflt))
-<BR>[Address Reference Count : 1]<UL><LI> main.o(.text)
-</UL>
+<P><STRONG><a name="[7b]"></a>_fflt</STRONG> (ARM, 92 bytes, Stack size 0 bytes, fflt_noclz.o(x$fpl$fflt), UNUSED)
+
 <P><STRONG><a name="[7c]"></a>__fflt_normalise</STRONG> (ARM, 0 bytes, Stack size unknown bytes, fflt_noclz.o(x$fpl$fflt), UNUSED)
 
 <P><STRONG><a name="[3b]"></a>__aeabi_cfcmple</STRONG> (ARM, 0 bytes, Stack size 16 bytes, fleqf.o(x$fpl$fleqf))

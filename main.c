@@ -53,6 +53,7 @@ int main()
     else
     {
         sms = 0;
+				IOCLR0 = IN1|IN2|BUZZ;
         lcd_cmd(0x94);
         lcd_str("NORMAL TEMPERATURE");
     }

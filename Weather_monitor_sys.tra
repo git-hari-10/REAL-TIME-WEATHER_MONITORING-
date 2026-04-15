@@ -11,7 +11,7 @@
 ### ADS-LD Output File: 'Weather_monitor_sys.axf'
 ### ADS-LD Command File: 'Weather_monitor_sys.lnp'
 ### Checking for dirty Components...
-### Creating CmdFile 'Weather_monitor_sys.lnp', Handle=0x00001034
+### Creating CmdFile 'Weather_monitor_sys.lnp', Handle=0x00000DB8
 ### Writing '.lnp' file
 ### ADS-LD Command file 'Weather_monitor_sys.lnp' is ready.
 ### ADS-LD: About to start ADS-LD Thread.
